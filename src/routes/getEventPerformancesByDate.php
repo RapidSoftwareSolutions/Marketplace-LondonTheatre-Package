@@ -25,8 +25,8 @@ $app->post('/api/LondonTheatreDirect/getEventPerformancesByDate', function ($req
                 'Content-Type' => "application/json"
             ],
             'query' => [
-                'dateFrom' => $postData['args']['dateFrom'],
-                'dateTo' => $postData['args']['dateTo']
+                'DateFrom' => $postData['args']['dateFrom'],
+                'DateTo' => $postData['args']['dateTo']
             ]
         ]);
         $vendorResponseBody = $vendorResponse->getBody()->getContents();

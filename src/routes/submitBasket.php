@@ -18,7 +18,7 @@ Danish	9*/
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey', 'basketId', 'email', 'name', 'lastName', 'addressLine1', 'companyName', 'city', 'country', 'zip', 'successReturnUrl', 'failureReturnUrl', 'sendConfirmationEmail', 'transactionReference', 'paymentGateLanguage', ]);
+    $validateRes = $checkRequest->validate($request, ['apiKey', 'basketId', 'email', 'name', 'lastName', 'addressLine1', 'companyName', 'city', 'country', 'zip', 'successReturnUrl', 'failureReturnUrl', 'sendConfirmationEmail', 'transactionReference', 'paymentGateLanguage',]);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -41,23 +41,23 @@ Danish	9*/
     $params['transactionReference'] = $postData['args']['transactionReference'];
     $params['paymentGateLanguage'] = $postData['args']['paymentGateLanguage'];
 
-   if (isset($postData['args']['addressLine2']) && strlen($postData['args']['addressLine2']) > 0) {
-       $params['addressLine2'] = $postData['args']['addressLine2'];
-   }
-   if (isset($postData['args']['phone']) && strlen($postData['args']['phone']) > 0) {
-       $params['phone'] = $postData['args']['phone'];
-   }
-   if (isset($postData['args']['mobile']) && strlen($postData['args']['mobile']) > 0) {
-       $params['mobile'] = $postData['args']['mobile'];
-   }
-   if (isset($postData['args']['stateCode']) && strlen($postData['args']['stateCode']) > 0) {
-       $params['stateCode'] = $postData['args']['stateCode'];
-   }
-   if (isset($postData['args']['deliveryType']) && strlen($postData['args']['deliveryType']) > 0) {
-       $params['deliveryType'] = $postData['args']['deliveryType'];
-   }
+    if (isset($postData['args']['addressLine2']) && strlen($postData['args']['addressLine2']) > 0) {
+        $params['addressLine2'] = $postData['args']['addressLine2'];
+    }
+    if (isset($postData['args']['phone']) && strlen($postData['args']['phone']) > 0) {
+        $params['phone'] = $postData['args']['phone'];
+    }
+    if (isset($postData['args']['mobile']) && strlen($postData['args']['mobile']) > 0) {
+        $params['mobile'] = $postData['args']['mobile'];
+    }
+    if (isset($postData['args']['stateCode']) && strlen($postData['args']['stateCode']) > 0) {
+        $params['stateCode'] = $postData['args']['stateCode'];
+    }
+    if (isset($postData['args']['deliveryType']) && strlen($postData['args']['deliveryType']) > 0) {
+        $params['deliveryType'] = $postData['args']['deliveryType'];
+    }
     if (isset($postData['args']['requireTicketPlan']) && strlen($postData['args']['requireTicketPlan']) > 0) {
-       $params['requireTicketPlan'] = filter_var($postData['args']['requireTicketPlan'], FILTER_VALIDATE_BOOLEAN);
+        $params['requireTicketPlan'] = filter_var($postData['args']['requireTicketPlan'], FILTER_VALIDATE_BOOLEAN);
     }
 
     try {
@@ -74,8 +74,7 @@ Danish	9*/
         if ($vendorResponse->getStatusCode() == 200) {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = json_decode($vendorResponse->getBody());
-        }
-        else {
+        } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
             $result['contextWrites']['to']['status_msg'] = is_array($vendorResponseBody) ? $vendorResponseBody : json_decode($vendorResponseBody);

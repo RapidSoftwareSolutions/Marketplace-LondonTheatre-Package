@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/LondonTheatreDirect/getDeliveryTypes', function ($request, $response, $args) {
+$app->post('/api/LondonTheatreDirect/getDeliveryTypes', function ($request, $response) {
     /** @var \Slim\Http\Response $response */
     /** @var \Slim\Http\Request $request */
     /** @var \Models\checkRequest $checkRequest */

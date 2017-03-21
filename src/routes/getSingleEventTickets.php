@@ -25,9 +25,9 @@ $app->post('/api/LondonTheatreDirect/getSingleEventTickets', function ($request,
                 'Content-Type' => "application/json"
             ],
             'query' => [
-                'dateFrom' => $postData['args']['dateFrom'],
-                'dateTo' => $postData['args']['dateTo'],
-                'nbOfTickets' => $postData['args']['nbOfTickets']
+                'DateFrom' => $postData['args']['dateFrom'],
+                'DateTo' => $postData['args']['dateTo'],
+                'NbOfTickets' => $postData['args']['nbOfTickets']
             ]
         ]);
         $vendorResponseBody = $vendorResponse->getBody()->getContents();

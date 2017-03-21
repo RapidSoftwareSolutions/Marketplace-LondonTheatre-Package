@@ -28,7 +28,7 @@ $app->post('/api/LondonTheatreDirect/getEventsTickets', function ($request, $res
                 'DateFrom' => $postData['args']['dateFrom'],
                 'DateTo' => $postData['args']['dateTo'],
                 'NbOfTickets' => $postData['args']['nbOfTickets'],
-                'ConsecutiveSeatsOnly' => $postData['args']['consecutiveSeatsOnly']
+                'ConsecutiveSeatsOnly' => filter_var($postData['args']['consecutiveSeatsOnly'], FILTER_VALIDATE_BOOLEAN)
             ]
         ]);
         $vendorResponseBody = $vendorResponse->getBody()->getContents();

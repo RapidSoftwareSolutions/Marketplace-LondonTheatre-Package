@@ -7,7 +7,7 @@ $app->post('/api/LondonTheatreDirect/getSingleEventReviews', function ($request,
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey', 'eventId', 'dateFrom', 'dateTo', 'nbOfTickets', 'consecutiveSeatsOnly']);
+    $validateRes = $checkRequest->validate($request, ['apiKey', 'eventId']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
