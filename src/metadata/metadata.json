@@ -1,0 +1,1025 @@
+{
+  "package": "LondonTheatreDirect",
+  "tagline": "LondonTheatreDirect API",
+  "description": "",
+  "image": "",
+  "repo": "",
+  "keywords": [],
+  "accounts": {
+    "domain": "londontheatredirect.com",
+    "credentials": [
+      "apiKey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getEvents",
+      "description": "Returns all LIVE Events",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Your apiKey",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEventsByType",
+      "description": "Returns all LIVE events of provided type. Use getEventTypes for details",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Your apiKey",
+          "required": true
+        },
+        {
+          "name": "eventTypeId",
+          "type": "Number",
+          "info": "Event type identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEvent",
+      "description": "Returns information about specified event",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "Number",
+          "info": "Event identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEventPerformances",
+      "description": "Returns all performances for a specified event",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "Number",
+          "info": "Event identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEventsPerformances",
+      "description": "Returns all performances for provided events",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventIdList",
+          "type": "String",
+          "info": "Comma-separated event identifiers",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEventPerformancesByDate",
+      "description": "Returns the same result as getSingleEventPerformances, but performances are filtered by a specified date range",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "Number",
+          "info": "Event identifier",
+          "required": true
+        },
+        {
+          "name": "dateFrom",
+          "type": "String",
+          "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
+          "required": true
+        },
+        {
+          "name": "dateTo",
+          "type": "String",
+          "info": "Maximal acceptable date and time of any performance’s occurrence",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEventTickets",
+      "description": "Returns a specified event with all performances within specified date range that contain required amount of tickets available. In case required amount of tickets (i.e. nbOfTickets) is greater than zero, a result contains an event with performances having consecutive required amount of tickets available. In case required amount of tickets (i.e. nbOfTickets) equals to zero, a result contains an event with performances having any ticket available. Also, found tickets may not be consecutive. If no available ticket can be found at all, result object contains a null reference in property called AvailableEvent",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "Number",
+          "info": "Event identifier",
+          "required": true
+        },
+        {
+          "name": "dateFrom",
+          "type": "String",
+          "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
+          "required": true
+        },
+        {
+          "name": "dateTo",
+          "type": "String",
+          "info": "Maximal acceptable date and time of any performance’s occurrence",
+          "required": true
+        },
+        {
+          "name": "nbOfTickets",
+          "type": "Number",
+          "info": "Number of required tickets",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEventsTickets",
+      "description": "Returns a set of required events. Result set has size which equals to size of a parsed eventIds parameter. If some event has no available tickets nor any performance within specified date range is found, event instance on specific index is null reference. In case required amount of tickets (i.e. nbOfTickets) is greater than zero, a result contains events with performances having consecutive required amount of tickets available. In case required amount of tickets (i.e. nbOfTickets) equals to zero, a result contains events with performances having any ticket available. Also, found tickets may not be consecutive",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventIdList",
+          "type": "String",
+          "info": "Comma-separated list of event identifiers",
+          "required": true
+        },
+        {
+          "name": "dateFrom",
+          "type": "String",
+          "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
+          "required": true
+        },
+        {
+          "name": "dateTo",
+          "type": "String",
+          "info": "Maximal acceptable date and time of any performance’s occurrence",
+          "required": true
+        },
+        {
+          "name": "nbOfTickets",
+          "type": "Number",
+          "info": "Number of required tickets",
+          "required": true
+        },
+        {
+          "name": "consecutiveSeatsOnly",
+          "type": "Boolean",
+          "info": "flag indicating whether you are Interested only in immediately consecutive seats; parameter is ignored if nbOfTickets equals to zero",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEventBookingInfo",
+      "description": "Returns a preliminary booking information of all performances for a specified event. Requires number of tickets requested to properly return minimum and maximum ticket price",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "Number",
+          "info": "Event identifier",
+          "required": true
+        },
+        {
+          "name": "dateFrom",
+          "type": "String",
+          "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
+          "required": true
+        },
+        {
+          "name": "dateTo",
+          "type": "String",
+          "info": "Maximal acceptable date and time of any performance’s occurrence",
+          "required": true
+        },
+        {
+          "name": "nbOfTickets",
+          "type": "Number",
+          "info": "Number of required tickets",
+          "required": true
+        },
+        {
+          "name": "consecutiveSeatsOnly",
+          "type": "Boolean",
+          "info": "flag indicating whether you are Interested only in immediately consecutive seats; parameter is ignored if nbOfTickets equals to zero",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEventReviews",
+      "description": "Returns reviews for a specified event. By default it returns 10 reviews ordered by created datetime descending",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "Number",
+          "info": "Event identifier",
+          "required": true
+        },
+        {
+          "name": "reviewsOrder",
+          "type": "Number",
+          "info": "Enum ReviewsOrder (0 - DateDescending is set by default)",
+          "required": false
+        },
+        {
+          "name": "NbOfReviews",
+          "type": "Number",
+          "info": "Count of reviews returned (10 is set by default)",
+          "required": false
+        },
+        {
+          "name": "nbFrom",
+          "type": "Number",
+          "info": "Count of reviews skipped (0 is set by default)",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getVenues",
+      "description": "Returns all existing venues (theatres, arenas etc.). Result set contains even venues where no event is currently played",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleVenue",
+      "description": "Returns venue detail",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "venueId",
+          "type": "Number",
+          "info": "Venue identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleVenueEvents",
+      "description": "Returns all online events that are played in a venue having specified id",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "venueId",
+          "type": "Number",
+          "info": "Venue identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSinglePerformance",
+      "description": "Returns performance detail",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "performanceId",
+          "type": "Number",
+          "info": "Performance identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSinglePerformanceTickets",
+      "description": "Returns a group of tickets for a specified performance grouped by a ticket area, face and selling price. Result also respects input parameter for required amount of tickets so only areas having this amount available are returned",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "performanceId",
+          "type": "Number",
+          "info": "Performance identifier",
+          "required": true
+        },
+        {
+          "name": "requiredTicketsCount",
+          "type": "Number",
+          "info": "Required amount of tickets to be sold",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createBasket",
+      "description": "Creates new basket. You must call this method first when you have an intention of creating a new order",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addTicketsToBasket",
+      "description": "Adds provided tickets into basket",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "basketId",
+          "type": "String",
+          "info": "Unique basket identifier",
+          "required": true
+        },
+        {
+          "name": "ticketIdList",
+          "type": "Array",
+          "info": "List of TicketIds",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleBasket",
+      "description": "Returns contents of provided basket (BasketId)",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "basketId",
+          "type": "String",
+          "info": "Unique basket identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "submitBasket",
+      "description": "Submits basket content",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "basketId",
+          "type": "String",
+          "info": "Unique basket identifier",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Customer e-mail address",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Customer first name",
+          "required": true
+        },
+        {
+          "name": "lastName",
+          "type": "String",
+          "info": "Customer last name",
+          "required": true
+        },
+        {
+          "name": "addressLine1",
+          "type": "String",
+          "info": "Billing address line 1. Example: 132, My Street",
+          "required": true
+        },
+        {
+          "name": "addressLine2",
+          "type": "String",
+          "info": "Billing address line 1. Example: 1st floor",
+          "required": false
+        },
+        {
+          "name": "companyName",
+          "type": "String",
+          "info": "Billing company name",
+          "required": true
+        },
+        {
+          "name": "city",
+          "type": "String",
+          "info": "Billing city",
+          "required": true
+        },
+        {
+          "name": "country",
+          "type": "Number",
+          "info": "Billing country identifier",
+          "required": true
+        },
+        {
+          "name": "zip",
+          "type": "String",
+          "info": "Billing zip code",
+          "required": true
+        },
+        {
+          "name": "successReturnUrl",
+          "type": "String",
+          "info": "Destination URL where you get redirected after successful payment",
+          "required": true
+        },
+        {
+          "name": "failureReturnUrl",
+          "type": "String",
+          "info": "Destination URL where you get redirected after failure payment",
+          "required": true
+        },
+        {
+          "name": "sendConfirmationEmail",
+          "type": "Boolean",
+          "info": "Flag indicating whether to send a confirmation e-mail to a customer",
+          "required": true
+        },
+        {
+          "name": "transactionReference",
+          "type": "String",
+          "info": "External identification of a transaction",
+          "required": true
+        },
+        {
+          "name": "paymentGateLanguage",
+          "type": "Number",
+          "info": "Desired language of payment gate",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "info": "Contact phone number",
+          "required": false
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "info": "Contact mobile phone number",
+          "required": false
+        },
+        {
+          "name": "stateCode",
+          "type": "String",
+          "info": "State code, applied only for United States",
+          "required": false
+        },
+        {
+          "name": "deliveryType",
+          "type": "Number",
+          "info": "Delivery type",
+          "required": false
+        },
+        {
+          "name": "requireTicketPlan",
+          "type": "Boolean",
+          "info": "Flag indicating whether a booking insurance should be also created",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSubmittedBasketSummary",
+      "description": "Returns contents for provided BasketId only when basket was already submitted",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "basketId",
+          "type": "String",
+          "info": "Unique basket identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteOrderFromBasket",
+      "description": "Removes order from basket",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "basketId",
+          "type": "String",
+          "info": "Unique basket identifier",
+          "required": true
+        },
+        {
+          "name": "basketItemId",
+          "type": "Number",
+          "info": "Basket item identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteAllFromBasket",
+      "description": "Releases all tickets from basket",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "basketId",
+          "type": "String",
+          "info": "Unique basket identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "checkTicketAvailability",
+      "description": "Checks current availability of provided tickets. To get list of existing tickets, use getSingleEventTicket and getEventsTickets",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        },
+        {
+          "name": "ticketId",
+          "type": "Number",
+          "info": "Unique ticket identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getTicketPlanPrice",
+      "description": "Returns price of TicketPlan refund protection",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCountries",
+      "description": "Returns all Countries",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getUSAStates",
+      "description": "Returns all US states",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEventTypes",
+      "description": "Returns all Event types",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getDeliveryTypes",
+      "description": "Returns all Delivery types",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getDeliveryTypes",
+      "description": "Returns all Delivery types",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSystemHeartBeat",
+      "description": "Returns true if the web services are available",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "String",
+          "info": "Returns all LIVE Events",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
+
