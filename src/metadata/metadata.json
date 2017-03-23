@@ -1,10 +1,17 @@
 {
   "package": "LondonTheatreDirect",
   "tagline": "LondonTheatreDirect API",
-  "description": "",
-  "image": "",
-  "repo": "",
-  "keywords": [],
+  "description": "Get theater ticket pricing/availability in London and NYC.",
+  "image": "https://logo.clearbit.com/londontheatredirect.com",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-LondonTheatreDirect-Package",
+  "keywords": [
+    "API",
+    "UK",
+    "event",
+    "london",
+    "show",
+    "theater"
+  ],
   "accounts": {
     "domain": "londontheatredirect.com",
     "credentials": [
