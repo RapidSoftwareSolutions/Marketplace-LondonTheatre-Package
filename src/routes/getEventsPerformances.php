@@ -7,14 +7,14 @@ $app->post('/api/LondonTheatreDirect/getEventsPerformances', function ($request,
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey', 'eventId']);
+    $validateRes = $checkRequest->validate($request, ['apiKey', 'eventIdList']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $postData = $validateRes;
     }
 
-    $url = $settings['apiUrl'] . "/Events/" . $postData['args']['eventId'] . "/Performances";
+    $url = $settings['apiUrl'] . "/Events/" . $postData['args']['eventIdList'] . "/Performances";
 
     try {
         /** @var GuzzleHttp\Client $client */
