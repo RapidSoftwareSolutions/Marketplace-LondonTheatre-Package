@@ -28,7 +28,7 @@ $app->post('/api/LondonTheatreDirect/getSystemHeartBeat', function ($request, $r
         $vendorResponseBody = $vendorResponse->getBody()->getContents();
         if ($vendorResponse->getStatusCode() == 200) {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = json_decode($vendorResponse->getBody());
+            $result['contextWrites']['to']['success'] = json_decode($vendorResponse->getBody());
         }
         else {
             $result['callback'] = 'error';
