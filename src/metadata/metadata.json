@@ -984,28 +984,6 @@
       ]
     },
     {
-      "name": "getDeliveryTypes",
-      "description": "Returns all Delivery types",
-      "args": [
-        {
-          "name": "apiKey",
-          "type": "String",
-          "info": "Your apiKey",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
       "name": "getSystemHeartBeat",
       "description": "Returns true if the web services are available",
       "args": [

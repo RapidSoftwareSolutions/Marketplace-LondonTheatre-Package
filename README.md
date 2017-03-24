@@ -261,13 +261,6 @@ Returns all Delivery types
 |-------|-------|----------
 | apiKey| String| Your apiKey
 
-## LondonTheatreDirect.getDeliveryTypes
-Returns all Delivery types
-
-| Field | Type  | Description
-|-------|-------|----------
-| apiKey| String| Your apiKey
-
 ## LondonTheatreDirect.getSystemHeartBeat
 Returns true if the web services are available
 
