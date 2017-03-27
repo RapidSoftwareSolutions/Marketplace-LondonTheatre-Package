@@ -5,7 +5,7 @@
 * Credentials: apiKey
 
 ## How to get credentials: 
-1. Obtain apiKey from https://iodocs.londontheatredirect.com/apps/mykeys 
+1. Obtain apiKey from [London Theatre Direct](https://iodocs.londontheatredirect.com/apps/mykeys) 
  
 ## LondonTheatreDirect.getEvents
 Returns all LIVE Events
