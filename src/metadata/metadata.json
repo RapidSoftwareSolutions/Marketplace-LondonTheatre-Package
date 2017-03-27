@@ -25,7 +25,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -47,7 +47,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -75,7 +75,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -103,7 +103,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -131,7 +131,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -159,7 +159,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -199,7 +199,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -245,7 +245,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -297,7 +297,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -349,7 +349,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -395,7 +395,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -417,7 +417,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -445,7 +445,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -473,7 +473,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -501,7 +501,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -535,7 +535,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -557,7 +557,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -591,7 +591,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -619,7 +619,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -761,7 +761,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -789,7 +789,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -823,7 +823,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -851,7 +851,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         },
@@ -879,7 +879,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -901,7 +901,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -923,7 +923,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -945,7 +945,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -967,7 +967,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }
@@ -989,7 +989,7 @@
       "args": [
         {
           "name": "apiKey",
-          "type": "String",
+          "type": "credentials",
           "info": "Your apiKey",
           "required": true
         }

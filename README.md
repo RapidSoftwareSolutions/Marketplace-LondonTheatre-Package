@@ -12,14 +12,14 @@ Returns all LIVE Events
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.getEventsByType
 Returns all LIVE events of provided type. Use getEventTypes for details
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Your apiKey
+| apiKey     | credentials| Your apiKey
 | eventTypeId| Number| Event type identifier
 
 ## LondonTheatreDirect.getSingleEvent
@@ -27,7 +27,7 @@ Returns information about specified event
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey | String| Your apiKey
+| apiKey | credentials| Your apiKey
 | eventId| Number| Event identifier
 
 ## LondonTheatreDirect.getSingleEventPerformances
@@ -35,7 +35,7 @@ Returns all performances for a specified event
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey | String| Your apiKey
+| apiKey | credentials| Your apiKey
 | eventId| Number| Event identifier
 
 ## LondonTheatreDirect.getEventsPerformances
@@ -43,7 +43,7 @@ Returns all performances for provided events
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Your apiKey
+| apiKey     | credentials| Your apiKey
 | eventIdList| String| Comma-separated event identifiers. Example "1,2,3"
 
 ## LondonTheatreDirect.getEventPerformancesByDate
@@ -51,7 +51,7 @@ Returns the same result as getSingleEventPerformances, but performances are filt
 
 | Field   | Type  | Description
 |---------|-------|----------
-| apiKey  | String| Your apiKey
+| apiKey  | credentials| Your apiKey
 | eventId | Number| Event identifier
 | dateFrom| String| Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
 | dateTo  | String| Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
@@ -61,7 +61,7 @@ Returns a specified event with all performances within specified date range that
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Your apiKey
+| apiKey     | credentials| Your apiKey
 | eventId    | Number| Event identifier
 | dateFrom   | String| Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
 | dateTo     | String| Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
@@ -72,7 +72,7 @@ Returns a set of required events. Result set has size which equals to size of a 
 
 | Field               | Type   | Description
 |---------------------|--------|----------
-| apiKey              | String | Your apiKey
+| apiKey              | credentials | Your apiKey
 | eventIdList         | String | Comma-separated list of event identifiers
 | dateFrom            | String | Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
 | dateTo              | String | Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
@@ -84,7 +84,7 @@ Returns a preliminary booking information of all performances for a specified ev
 
 | Field               | Type   | Description
 |---------------------|--------|----------
-| apiKey              | String | Your apiKey
+| apiKey              | credentials | Your apiKey
 | eventId             | Number | Event identifier
 | dateFrom            | String | Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
 | dateTo              | String | Maximal acceptable date and time of any performance’s occurrence
@@ -96,7 +96,7 @@ Returns reviews for a specified event. By default it returns 10 reviews ordered 
 
 | Field       | Type  | Description
 |-------------|-------|----------
-| apiKey      | String| Your apiKey
+| apiKey      | credentials| Your apiKey
 | eventId     | Number| Event identifier
 | reviewsOrder| Number| Enum ReviewsOrder (0 - DateDescending is set by default)
 | nbOfReviews | Number| Count of reviews returned (10 is set by default)
@@ -107,14 +107,14 @@ Returns all existing venues (theatres, arenas etc.). Result set contains even ve
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.getSingleVenue
 Returns venue detail
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey | String| Your apiKey
+| apiKey | credentials| Your apiKey
 | venueId| Number| Venue identifier
 
 ## LondonTheatreDirect.getSingleVenueEvents
@@ -122,7 +122,7 @@ Returns all online events that are played in a venue having specified id
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey | String| Your apiKey
+| apiKey | credentials| Your apiKey
 | venueId| Number| Venue identifier
 
 ## LondonTheatreDirect.getSinglePerformance
@@ -130,7 +130,7 @@ Returns performance detail
 
 | Field        | Type  | Description
 |--------------|-------|----------
-| apiKey       | String| Your apiKey
+| apiKey       | credentials| Your apiKey
 | performanceId| Number| Performance identifier
 
 ## LondonTheatreDirect.getSinglePerformanceTickets
@@ -138,7 +138,7 @@ Returns a group of tickets for a specified performance grouped by a ticket area,
 
 | Field               | Type  | Description
 |---------------------|-------|----------
-| apiKey              | String| Your apiKey
+| apiKey              | credentials| Your apiKey
 | performanceId       | Number| Performance identifier
 | requiredTicketsCount| Number| Required amount of tickets to be sold
 
@@ -147,14 +147,14 @@ Creates new basket. You must call this method first when you have an intention o
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.addTicketsToBasket
 Adds provided tickets into basket
 
 | Field       | Type  | Description
 |-------------|-------|----------
-| apiKey      | String| Your apiKey
+| apiKey      | credentials| Your apiKey
 | basketId    | String| Unique basket identifier
 | ticketIdList| Array | List of TicketIds
 
@@ -163,7 +163,7 @@ Returns contents of provided basket (BasketId)
 
 | Field   | Type  | Description
 |---------|-------|----------
-| apiKey  | String| Your apiKey
+| apiKey  | credentials| Your apiKey
 | basketId| String| Unique basket identifier
 
 ## LondonTheatreDirect.submitBasket
@@ -171,7 +171,7 @@ Submits basket content
 
 | Field                | Type   | Description
 |----------------------|--------|----------
-| apiKey               | String | Your apiKey
+| apiKey               | credentials | Your apiKey
 | basketId             | String | Unique basket identifier
 | email                | String | Customer e-mail address
 | name                 | String | Customer first name
@@ -198,7 +198,7 @@ Returns contents for provided BasketId only when basket was already submitted
 
 | Field   | Type  | Description
 |---------|-------|----------
-| apiKey  | String| Your apiKey
+| apiKey  | credentials| Your apiKey
 | basketId| String| Unique basket identifier
 
 ## LondonTheatreDirect.deleteOrderFromBasket
@@ -206,7 +206,7 @@ Removes order from basket
 
 | Field       | Type  | Description
 |-------------|-------|----------
-| apiKey      | String| Your apiKey
+| apiKey      | credentials| Your apiKey
 | basketId    | String| Unique basket identifier
 | basketItemId| Number| Basket item identifier
 
@@ -215,7 +215,7 @@ Releases all tickets from basket
 
 | Field   | Type  | Description
 |---------|-------|----------
-| apiKey  | String| Your apiKey
+| apiKey  | credentials| Your apiKey
 | basketId| String| Unique basket identifier
 
 ## LondonTheatreDirect.checkTicketAvailability
@@ -223,7 +223,7 @@ Checks current availability of provided tickets. To get list of existing tickets
 
 | Field   | Type  | Description
 |---------|-------|----------
-| apiKey  | String| Your apiKey
+| apiKey  | credentials| Your apiKey
 | ticketId| Number| Unique ticket identifier
 
 ## LondonTheatreDirect.getTicketPlanPrice
@@ -231,40 +231,40 @@ Returns price of TicketPlan refund protection
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.getCountries
 Returns all Countries
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.getUSAStates
 Returns all US states
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.getEventTypes
 Returns all Event types
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.getDeliveryTypes
 Returns all Delivery types
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
 ## LondonTheatreDirect.getSystemHeartBeat
 Returns true if the web services are available
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Your apiKey
+| apiKey| credentials| Your apiKey
 
