@@ -15,6 +15,9 @@ $app->post('/api/LondonTheatreDirect/getSingleEventBookingInfo', function ($requ
     }
 
     $url = $settings['apiUrl'] . "/Events/" . $postData['args']['eventId'] . "/PreliminaryBookingInfo";
+    $dateFrom = new DateTime($postData['args']['dateFrom']);
+    $dateTo = new DateTime($postData['args']['dateTo']);
+
     try {
         /** @var GuzzleHttp\Client $client */
         $client = $this->httpClient;
@@ -24,8 +27,8 @@ $app->post('/api/LondonTheatreDirect/getSingleEventBookingInfo', function ($requ
                 'Content-Type' => "application/json"
             ],
             'query' => [
-                'DateFrom' => $postData['args']['dateFrom'],
-                'DateTo' => $postData['args']['dateTo'],
+                'DateFrom' => $dateFrom->format('Y-m-d'),
+                'DateTo' => $dateTo->format('Y-m-d'),
                 'NbOfTickets' => $postData['args']['nbOfTickets'],
                 'consecutiveSeatsOnly' => filter_var($postData['args']['consecutiveSeatsOnly'], FILTER_VALIDATE_BOOLEAN) ? 'true' : 'false'
             ]

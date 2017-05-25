@@ -14,7 +14,14 @@ $app->post('/api/LondonTheatreDirect/getEventsPerformances', function ($request,
         $postData = $validateRes;
     }
 
-    $url = $settings['apiUrl'] . "/Events/" . $postData['args']['eventIdList'] . "/Performances";
+    if (is_array($postData['args']['eventIdList'])) {
+        $eventIdList = implode(',', $postData['args']['eventIdList']);
+    }
+    else {
+        $eventIdList = $postData['args']['eventIdList'];
+    }
+
+    $url = $settings['apiUrl'] . "/Events/" . str_replace(" ", "", $eventIdList) . "/Performances";
 
     try {
         /** @var GuzzleHttp\Client $client */

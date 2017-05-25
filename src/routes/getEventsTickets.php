@@ -14,7 +14,16 @@ $app->post('/api/LondonTheatreDirect/getEventsTickets', function ($request, $res
         $postData = $validateRes;
     }
 
-    $url = $settings['apiUrl'] . "/Events/" . $postData['args']['eventIdList'] . '/AvailableTickets';
+    if (is_array($postData['args']['eventIdList'])) {
+        $eventIdList = implode(',', $postData['args']['eventIdList']);
+    }
+    else {
+        $eventIdList = $postData['args']['eventIdList'];
+    }
+
+    $url = $settings['apiUrl'] . "/Events/" . $eventIdList . '/AvailableTickets';
+    $dateFrom = new DateTime($postData['args']['dateFrom']);
+    $dateTo = new DateTime($postData['args']['dateTo']);
 
     try {
         /** @var GuzzleHttp\Client $client */
@@ -25,8 +34,8 @@ $app->post('/api/LondonTheatreDirect/getEventsTickets', function ($request, $res
                 'Content-Type' => "application/json"
             ],
             'query' => [
-                'DateFrom' => $postData['args']['dateFrom'],
-                'DateTo' => $postData['args']['dateTo'],
+                'DateFrom' => $dateFrom->format('Y-m-d'),
+                'DateTo' => $dateTo->format('Y-m-d'),
                 'NbOfTickets' => $postData['args']['nbOfTickets'],
                 'ConsecutiveSeatsOnly' => filter_var($postData['args']['consecutiveSeatsOnly'], FILTER_VALIDATE_BOOLEAN)
             ]

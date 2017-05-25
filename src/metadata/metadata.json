@@ -137,9 +137,14 @@
         },
         {
           "name": "eventIdList",
-          "type": "String",
-          "info": "Comma-separated event identifiers",
-          "required": true
+          "type": "List",
+          "info": "Identifiers",
+          "required": true,
+          "structure": {
+            "name": "eventId",
+            "type": "String",
+            "info": "Event ID"
+          }
         }
       ],
       "callbacks": [
@@ -171,13 +176,13 @@
         },
         {
           "name": "dateFrom",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
           "required": true
         },
         {
           "name": "dateTo",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Maximal acceptable date and time of any performance’s occurrence",
           "required": true
         }
@@ -211,13 +216,13 @@
         },
         {
           "name": "dateFrom",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
           "required": true
         },
         {
           "name": "dateTo",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Maximal acceptable date and time of any performance’s occurrence",
           "required": true
         },
@@ -251,19 +256,24 @@
         },
         {
           "name": "eventIdList",
-          "type": "String",
-          "info": "Comma-separated list of event identifiers",
-          "required": true
+          "type": "List",
+          "info": "List of event identifiers",
+          "required": true,
+          "structure": {
+            "name": "eventId",
+            "type": "String",
+            "info": "Event ID"
+          }
         },
         {
           "name": "dateFrom",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
           "required": true
         },
         {
           "name": "dateTo",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Maximal acceptable date and time of any performance’s occurrence",
           "required": true
         },
@@ -309,13 +319,13 @@
         },
         {
           "name": "dateFrom",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24",
           "required": true
         },
         {
           "name": "dateTo",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Maximal acceptable date and time of any performance’s occurrence",
           "required": true
         },
@@ -569,9 +579,14 @@
         },
         {
           "name": "ticketIdList",
-          "type": "Array",
+          "type": "List",
           "info": "List of TicketIds",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "ticketId",
+            "type": "String",
+            "info": "Ticket ID"
+          }
         }
       ],
       "callbacks": [

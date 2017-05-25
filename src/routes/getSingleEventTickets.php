@@ -15,6 +15,8 @@ $app->post('/api/LondonTheatreDirect/getSingleEventTickets', function ($request,
     }
 
     $url = $settings['apiUrl'] . "/Events/". $postData['args']['eventId'].'/AvailableTickets';
+    $dateFrom = new DateTime($postData['args']['dateFrom']);
+    $dateTo = new DateTime($postData['args']['dateTo']);
 
     try {
         /** @var GuzzleHttp\Client $client */
@@ -25,8 +27,8 @@ $app->post('/api/LondonTheatreDirect/getSingleEventTickets', function ($request,
                 'Content-Type' => "application/json"
             ],
             'query' => [
-                'DateFrom' => $postData['args']['dateFrom'],
-                'DateTo' => $postData['args']['dateTo'],
+                'DateFrom' => $dateFrom->format('Y-m-d'),
+                'DateTo' => $dateTo->format('Y-m-d'),
                 'NbOfTickets' => $postData['args']['nbOfTickets']
             ]
         ]);

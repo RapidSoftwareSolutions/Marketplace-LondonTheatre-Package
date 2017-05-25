@@ -44,7 +44,7 @@ Returns all performances for provided events
 | Field      | Type  | Description
 |------------|-------|----------
 | apiKey     | credentials| Your apiKey
-| eventIdList| String| Comma-separated event identifiers. Example "1,2,3"
+| eventIdList| Array | Identifiers
 
 ## LondonTheatreDirect.getEventPerformancesByDate
 Returns the same result as getSingleEventPerformances, but performances are filtered by a specified date range
@@ -73,7 +73,7 @@ Returns a set of required events. Result set has size which equals to size of a 
 | Field               | Type   | Description
 |---------------------|--------|----------
 | apiKey              | credentials | Your apiKey
-| eventIdList         | String | Comma-separated list of event identifiers
+| eventIdList         | Array | List of event identifiers
 | dateFrom            | String | Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
 | dateTo              | String | Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
 | nbOfTickets         | Number | Number of required tickets
