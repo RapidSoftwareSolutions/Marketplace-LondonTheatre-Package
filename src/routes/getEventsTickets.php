@@ -16,14 +16,20 @@ $app->post('/api/LondonTheatreDirect/getEventsTickets', function ($request, $res
 
     if (is_array($postData['args']['eventIdList'])) {
         $eventIdList = implode(',', $postData['args']['eventIdList']);
-    }
-    else {
+    } else {
         $eventIdList = $postData['args']['eventIdList'];
     }
 
-    $url = $settings['apiUrl'] . "/Events/" . str_replace(" ", "", $eventIdList) . '/AvailableTickets';
     $dateFrom = new DateTime($postData['args']['dateFrom']);
     $dateTo = new DateTime($postData['args']['dateTo']);
+
+    $param['dateFrom'] = $dateFrom->format('Y-m-d');
+    $param['dateTo'] = $dateTo->format('Y-m-d');
+    $param['nbOfTickets'] = $postData['args']['nbOfTickets'];
+    $param['consecutiveSeatsOnly'] = filter_var($postData['args']['consecutiveSeatsOnly'], FILTER_VALIDATE_BOOLEAN) ? "true" : "false";
+
+    $url = $settings['apiUrl'] . "/Events/" . str_replace(" ", "", $eventIdList) . '/AvailableTickets';
+
 
     try {
         /** @var GuzzleHttp\Client $client */
@@ -33,19 +39,13 @@ $app->post('/api/LondonTheatreDirect/getEventsTickets', function ($request, $res
                 'Api-Key' => $postData['args']['apiKey'],
                 'Content-Type' => "application/json"
             ],
-            'query' => [
-                'DateFrom' => $dateFrom->format('Y-m-d'),
-                'DateTo' => $dateTo->format('Y-m-d'),
-                'NbOfTickets' => $postData['args']['nbOfTickets'],
-                'ConsecutiveSeatsOnly' => filter_var($postData['args']['consecutiveSeatsOnly'], FILTER_VALIDATE_BOOLEAN)
-            ]
+            'query' => $param
         ]);
         $vendorResponseBody = $vendorResponse->getBody()->getContents();
         if ($vendorResponse->getStatusCode() == 200) {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = json_decode($vendorResponse->getBody());
-        }
-        else {
+        } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
             $result['contextWrites']['to']['status_msg'] = is_array($vendorResponseBody) ? $vendorResponseBody : json_decode($vendorResponseBody);

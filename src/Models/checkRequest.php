@@ -34,7 +34,7 @@ class checkRequest
                                 $error[] = $item;
                             }
                         }
-                        else {
+                        elseif (!is_bool($post_data['args'][$item])) {
                             if (strlen($post_data['args'][$item]) == 0) {
                                 $error[] = $item;
                             }
