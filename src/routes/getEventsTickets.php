@@ -21,7 +21,7 @@ $app->post('/api/LondonTheatreDirect/getEventsTickets', function ($request, $res
         $eventIdList = $postData['args']['eventIdList'];
     }
 
-    $url = $settings['apiUrl'] . "/Events/" . $eventIdList . '/AvailableTickets';
+    $url = $settings['apiUrl'] . "/Events/" . str_replace(" ", "", $eventIdList) . '/AvailableTickets';
     $dateFrom = new DateTime($postData['args']['dateFrom']);
     $dateTo = new DateTime($postData['args']['dateTo']);
 
