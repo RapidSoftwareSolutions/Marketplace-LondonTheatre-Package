@@ -143,7 +143,8 @@
           "structure": {
             "name": "eventId",
             "type": "String",
-            "info": "Event ID"
+            "info": "Event ID",
+            "required": true
           }
         }
       ],
@@ -262,7 +263,8 @@
           "structure": {
             "name": "eventId",
             "type": "String",
-            "info": "Event ID"
+            "info": "Event ID",
+            "required": true
           }
         },
         {
@@ -585,7 +587,8 @@
           "structure": {
             "name": "ticketId",
             "type": "String",
-            "info": "Ticket ID"
+            "info": "Ticket ID",
+            "required": true
           }
         }
       ],

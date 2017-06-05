@@ -7,6 +7,16 @@
 ## How to get credentials: 
 1. Obtain apiKey from [London Theatre Direct](https://iodocs.londontheatredirect.com/apps/mykeys) 
  
+ 
+## Custom datatypes: 
+|Datatype|Description|Example
+|--------|-----------|----------
+|Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+|Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+|List|Simple array|```["123", "sample"]``` 
+|Select|String with predefined values|```sample```
+|Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+ 
 ## LondonTheatreDirect.getEvents
 Returns all LIVE Events
 
@@ -44,7 +54,7 @@ Returns all performances for provided events
 | Field      | Type  | Description
 |------------|-------|----------
 | apiKey     | credentials| Your apiKey
-| eventIdList| Array | Identifiers
+| eventIdList| List  | Identifiers
 
 ## LondonTheatreDirect.getEventPerformancesByDate
 Returns the same result as getSingleEventPerformances, but performances are filtered by a specified date range
@@ -53,8 +63,8 @@ Returns the same result as getSingleEventPerformances, but performances are filt
 |---------|-------|----------
 | apiKey  | credentials| Your apiKey
 | eventId | Number| Event identifier
-| dateFrom| String| Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
-| dateTo  | String| Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
+| dateFrom| DatePicker| Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
+| dateTo  | DatePicker| Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
 
 ## LondonTheatreDirect.getSingleEventTickets
 Returns a specified event with all performances within specified date range that contain required amount of tickets available. In case required amount of tickets (i.e. nbOfTickets) is greater than zero, a result contains an event with performances having consecutive required amount of tickets available. In case required amount of tickets (i.e. nbOfTickets) equals to zero, a result contains an event with performances having any ticket available. Also, found tickets may not be consecutive. If no available ticket can be found at all, result object contains a null reference in property called AvailableEvent
@@ -63,8 +73,8 @@ Returns a specified event with all performances within specified date range that
 |------------|-------|----------
 | apiKey     | credentials| Your apiKey
 | eventId    | Number| Event identifier
-| dateFrom   | String| Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
-| dateTo     | String| Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
+| dateFrom   | DatePicker| Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
+| dateTo     | DatePicker| Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
 | nbOfTickets| Number| Number of required tickets
 
 ## LondonTheatreDirect.getEventsTickets
@@ -73,9 +83,9 @@ Returns a set of required events. Result set has size which equals to size of a 
 | Field               | Type   | Description
 |---------------------|--------|----------
 | apiKey              | credentials | Your apiKey
-| eventIdList         | Array | List of event identifiers
-| dateFrom            | String | Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
-| dateTo              | String | Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
+| eventIdList         | List  | List of event identifiers
+| dateFrom            | DatePicker | Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
+| dateTo              | DatePicker | Maximal acceptable date and time of any performance’s occurrence. Example 2017-02-28
 | nbOfTickets         | Number | Number of required tickets
 | consecutiveSeatsOnly| Boolean| Flag indicating whether you are Interested only in immediately consecutive seats; parameter is ignored if nbOfTickets equals to zero
 
@@ -86,8 +96,8 @@ Returns a preliminary booking information of all performances for a specified ev
 |---------------------|--------|----------
 | apiKey              | credentials | Your apiKey
 | eventId             | Number | Event identifier
-| dateFrom            | String | Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
-| dateTo              | String | Maximal acceptable date and time of any performance’s occurrence
+| dateFrom            | DatePicker | Minimal acceptable date and time of any performance’s occurrence. Example 2017-02-24
+| dateTo              | DatePicker | Maximal acceptable date and time of any performance’s occurrence
 | nbOfTickets         | Number | Number of required tickets
 | consecutiveSeatsOnly| Boolean| Flag indicating whether you are Interested only in immediately consecutive seats; parameter is ignored if nbOfTickets equals to zero
 
@@ -156,7 +166,7 @@ Adds provided tickets into basket
 |-------------|-------|----------
 | apiKey      | credentials| Your apiKey
 | basketId    | String| Unique basket identifier
-| ticketIdList| Array | List of TicketIds
+| ticketIdList| List  | List of TicketIds
 
 ## LondonTheatreDirect.getSingleBasket
 Returns contents of provided basket (BasketId)
